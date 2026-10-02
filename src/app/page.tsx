@@ -7,7 +7,6 @@ import { MediaResult } from '@/components/MediaResult';
 import { DownloadHistory } from '@/components/DownloadHistory';
 import { SettingsModal } from '@/components/SettingsModal';
 import { SupportedSitesModal } from '@/components/SupportedSitesModal';
-import { VercelDeployBanner } from '@/components/VercelDeployBanner';
 import {
   DownloadCloud,
   ShieldCheck,
@@ -244,9 +243,6 @@ export default function Home() {
             </p>
           </div>
         </div>
-
-        {/* Vercel Deployment Guide Banner */}
-        <VercelDeployBanner />
       </main>
 
       {/* Footer */}

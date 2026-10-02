@@ -175,7 +175,7 @@ export default function Home() {
           </h1>
 
           <p className="text-sm sm:text-base text-slate-400 max-w-2xl mx-auto leading-relaxed">
-            Extract videos, music, images, and files from popular social platforms, streaming portals, or inspect any web page. Hosted 100% serverless on Vercel.
+            Extract videos, music, images, and files from popular social platforms, streaming portals, or inspect any web page.
           </p>
         </div>
 
@@ -237,9 +237,9 @@ export default function Home() {
             <div className="p-2.5 rounded-xl bg-pink-500/10 border border-pink-500/20 w-fit text-pink-400">
               <Layers className="w-5 h-5" />
             </div>
-            <h3 className="font-bold text-sm text-slate-200">100% Vercel Ready</h3>
+            <h3 className="font-bold text-sm text-slate-200">Multi-Format & Quality</h3>
             <p className="text-xs text-slate-400 leading-relaxed">
-              Zero heavy ffmpeg binaries or server dependencies required. Runs effortlessly on Vercel Hobby & Pro tiers.
+              Extract Full HD 1080p, audio MP3, or high-res original images with instant format selection and multi-item galleries.
             </p>
           </div>
         </div>

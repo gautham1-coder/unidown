@@ -4,8 +4,8 @@ import './globals.css';
 export const metadata: Metadata = {
   title: 'UniDown — Universal Media & File Downloader',
   description:
-    'Download video, audio, media, and files from any website, social platform, or direct stream URL. Deployable to Vercel with zero configuration.',
-  keywords: ['universal downloader', 'media downloader', 'video downloader', 'vercel downloader', 'file downloader'],
+    'Download video, audio, media, and files from any website, social platform, or direct stream URL.',
+  keywords: ['universal downloader', 'media downloader', 'video downloader', 'file downloader'],
   authors: [{ name: 'UniDown' }],
 };
 

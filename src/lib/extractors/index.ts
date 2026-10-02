@@ -3,6 +3,7 @@ import { extractDirectFile } from './direct';
 import { extractWithCobalt } from './cobalt';
 import { extractReddit } from './reddit';
 import { extractTwitter } from './twitter';
+import { extractFacebook } from './facebook';
 import { scrapeWebpageMedia } from './web-scraper';
 
 export async function extractMedia(req: ExtractionRequest): Promise<ExtractionResponse> {
@@ -40,6 +41,26 @@ export async function extractMedia(req: ExtractionRequest): Promise<ExtractionRe
   }
 
   // 2. Platform specific native extractors
+  if (
+    hostname.includes('facebook.com') ||
+    hostname.includes('fb.watch') ||
+    hostname.includes('fb.gg') ||
+    hostname.includes('facebook.net')
+  ) {
+    try {
+      const fbResult = await extractFacebook(formattedUrl);
+      if (fbResult && fbResult.item.formats.length > 0) {
+        return {
+          success: true,
+          item: fbResult.item,
+          engineUsed: fbResult.engineUsed,
+        };
+      }
+    } catch {
+      // Fallback
+    }
+  }
+
   if (hostname.includes('reddit.com') || hostname.includes('redd.it')) {
     try {
       const redditItem = await extractReddit(formattedUrl);

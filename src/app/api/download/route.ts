@@ -25,9 +25,29 @@ export async function GET(req: NextRequest) {
   try {
     const upstreamHeaders: Record<string, string> = {
       'User-Agent':
-        'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36',
+        'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36',
       Accept: '*/*',
     };
+
+    // Platform-specific anti-hotlink bypass headers
+    const host = targetUrl.hostname.toLowerCase();
+    if (
+      host.includes('fbcdn.net') ||
+      host.includes('facebook.com') ||
+      host.includes('fbsbx.com') ||
+      host.includes('instagram.com') ||
+      host.includes('cdninstagram.com')
+    ) {
+      upstreamHeaders['Referer'] = 'https://www.facebook.com/';
+      upstreamHeaders['Origin'] = 'https://www.facebook.com';
+      upstreamHeaders['Sec-Fetch-Site'] = 'cross-site';
+      upstreamHeaders['Sec-Fetch-Mode'] = 'no-cors';
+      upstreamHeaders['Sec-Fetch-Dest'] = 'video';
+    } else if (host.includes('twimg.com') || host.includes('x.com') || host.includes('twitter.com')) {
+      upstreamHeaders['Referer'] = 'https://twitter.com/';
+    } else if (host.includes('reddit.com') || host.includes('redd.it')) {
+      upstreamHeaders['Referer'] = 'https://www.reddit.com/';
+    }
 
     // Forward range header if present (for seeking, resumable downloads)
     const clientRange = req.headers.get('range');
@@ -84,6 +104,7 @@ export async function GET(req: NextRequest) {
     }
 
     responseHeaders.set('Cache-Control', 'public, max-age=3600');
+    responseHeaders.set('Access-Control-Allow-Origin', '*');
 
     // Stream directly through without buffering entire file in memory
     return new NextResponse(upstreamRes.body, {

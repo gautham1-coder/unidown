@@ -25,6 +25,11 @@ interface UrlInputProps {
 
 const SAMPLE_URLS = [
   {
+    label: 'Facebook Video',
+    url: 'https://www.facebook.com/watch/?v=10153231379946729',
+    type: 'social',
+  },
+  {
     label: 'Direct WebM Video',
     url: 'https://upload.wikimedia.org/wikipedia/commons/transcoded/c/c0/Big_Buck_Bunny_4K.webm/Big_Buck_Bunny_4K.webm.360p.vp9.webm',
     type: 'direct',
@@ -80,6 +85,12 @@ export function UrlInput({ url, setUrl, onSubmit, isLoading }: UrlInputProps) {
 
   const renderPlatformIcon = (iconName: string) => {
     switch (iconName) {
+      case 'Facebook':
+        return (
+          <svg className="w-3.5 h-3.5 fill-blue-500" viewBox="0 0 24 24">
+            <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+          </svg>
+        );
       case 'Youtube':
         return (
           <svg className="w-3.5 h-3.5 fill-red-500" viewBox="0 0 24 24">
@@ -126,7 +137,7 @@ export function UrlInput({ url, setUrl, onSubmit, isLoading }: UrlInputProps) {
               value={url}
               onChange={(e) => setUrl(e.target.value)}
               onKeyDown={handleKeyDown}
-              placeholder="Paste any link: YouTube, TikTok, Reddit, Instagram, or any webpage..."
+              placeholder="Paste any link: Facebook, YouTube, TikTok, Reddit, Instagram, or any webpage..."
               disabled={isLoading}
               className="w-full py-3 bg-transparent text-sm sm:text-base text-slate-900 dark:text-slate-100 placeholder-slate-400 dark:placeholder-slate-400 focus:outline-none"
             />

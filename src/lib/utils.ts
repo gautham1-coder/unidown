@@ -67,7 +67,7 @@ export function detectPlatform(urlStr: string): {
     if (host.includes('reddit.com') || host.includes('redd.it')) {
       return { platform: 'Reddit', category: 'social', iconName: 'MessageSquare' };
     }
-    if (host.includes('facebook.com') || host.includes('fb.watch')) {
+    if (host.includes('facebook.com') || host.includes('fb.watch') || host.includes('fb.gg') || host.includes('facebook.net')) {
       return { platform: 'Facebook', category: 'social', iconName: 'Facebook' };
     }
     if (host.includes('pinterest.com') || host.includes('pin.it')) {

@@ -202,6 +202,16 @@ async function extractWithSnapSave(targetUrl: string): Promise<MediaItem | null>
   }
 }
 
+const isValidVideoUrl = (u: string): boolean => {
+  return (
+    Boolean(u) &&
+    u.startsWith('http') &&
+    !u.includes('lookaside.fbsbx.com/lookaside/crawler') &&
+    !u.includes('static.xx.fbcdn.net') &&
+    !u.includes('rsrc.php')
+  );
+};
+
 // Strategy 2: Native Direct Facebook Page Inspector
 async function extractFacebookDirect(targetUrl: string): Promise<MediaItem | null> {
   const cleanTarget = normalizeFacebookUrl(targetUrl);
@@ -209,11 +219,11 @@ async function extractFacebookDirect(targetUrl: string): Promise<MediaItem | nul
   const controller = new AbortController();
   const timeout = setTimeout(() => controller.abort(), 9500);
 
-  // Use Facebook external hit User-Agent to encourage Facebook to serve full metadata
+  // Use Chrome desktop User-Agent to retrieve direct CDN mp4 video streams
   const res = await fetch(cleanTarget, {
     headers: {
       'User-Agent':
-        'facebookexternalhit/1.1 (+http://www.facebook.com/externalhit_uatext.php)',
+        'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36',
       Accept:
         'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8',
       'Accept-Language': 'en-US,en;q=0.9',
@@ -240,7 +250,7 @@ async function extractFacebookDirect(targetUrl: string): Promise<MediaItem | nul
 
   if (hdMatch) {
     const cleanHd = cleanUrl(hdMatch[1]);
-    if (cleanHd.startsWith('http') && !seenUrls.has(cleanHd)) {
+    if (isValidVideoUrl(cleanHd) && !seenUrls.has(cleanHd)) {
       seenUrls.add(cleanHd);
       formats.push({
         id: 'fb-hd',
@@ -264,7 +274,7 @@ async function extractFacebookDirect(targetUrl: string): Promise<MediaItem | nul
 
   if (sdMatch) {
     const cleanSd = cleanUrl(sdMatch[1]);
-    if (cleanSd.startsWith('http') && !seenUrls.has(cleanSd)) {
+    if (isValidVideoUrl(cleanSd) && !seenUrls.has(cleanSd)) {
       seenUrls.add(cleanSd);
       formats.push({
         id: 'fb-sd',
@@ -308,7 +318,7 @@ async function extractFacebookDirect(targetUrl: string): Promise<MediaItem | nul
     );
     if (ogVideoMatch) {
       const cleanOg = cleanUrl(ogVideoMatch[2]);
-      if (cleanOg.startsWith('http') && !seenUrls.has(cleanOg)) {
+      if (isValidVideoUrl(cleanOg) && !seenUrls.has(cleanOg)) {
         seenUrls.add(cleanOg);
         formats.push({
           id: 'fb-og',

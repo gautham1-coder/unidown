@@ -128,7 +128,7 @@ export function UrlInput({ url, setUrl, onSubmit, isLoading }: UrlInputProps) {
               onKeyDown={handleKeyDown}
               placeholder="Paste any link: YouTube, TikTok, Reddit, Instagram, or any webpage..."
               disabled={isLoading}
-              className="w-full py-3 bg-transparent text-sm sm:text-base text-slate-100 placeholder-slate-400 focus:outline-none"
+              className="w-full py-3 bg-transparent text-sm sm:text-base text-slate-900 dark:text-slate-100 placeholder-slate-400 dark:placeholder-slate-400 focus:outline-none"
             />
 
             {/* Clear Button */}
@@ -136,7 +136,7 @@ export function UrlInput({ url, setUrl, onSubmit, isLoading }: UrlInputProps) {
               <button
                 onClick={() => setUrl('')}
                 disabled={isLoading}
-                className="p-1 rounded-md text-slate-400 hover:text-white hover:bg-white/10 transition shrink-0"
+                className="p-1 rounded-md text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-slate-200 dark:hover:bg-white/10 transition shrink-0"
                 title="Clear input"
               >
                 <X className="w-4 h-4" />
@@ -149,7 +149,7 @@ export function UrlInput({ url, setUrl, onSubmit, isLoading }: UrlInputProps) {
                 type="button"
                 onClick={handlePaste}
                 disabled={isLoading}
-                className="flex items-center gap-1 text-xs text-slate-300 hover:text-white px-2.5 py-1.5 rounded-lg bg-white/5 hover:bg-white/10 border border-white/5 transition shrink-0"
+                className="flex items-center gap-1 text-xs text-slate-700 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white px-2.5 py-1.5 rounded-lg bg-slate-100 dark:bg-white/5 hover:bg-slate-200 dark:hover:bg-white/10 border border-slate-200 dark:border-white/5 transition shrink-0"
                 title="Paste from clipboard"
               >
                 <Clipboard className="w-3.5 h-3.5" />
@@ -211,7 +211,7 @@ export function UrlInput({ url, setUrl, onSubmit, isLoading }: UrlInputProps) {
                 onSubmit(sample.url);
               }}
               disabled={isLoading}
-              className="text-xs px-3 py-1.5 rounded-lg bg-white/5 hover:bg-indigo-500/20 text-slate-300 hover:text-indigo-200 border border-white/10 hover:border-indigo-500/30 transition text-left"
+              className="text-xs px-3 py-1.5 rounded-lg bg-slate-100 dark:bg-white/5 hover:bg-indigo-50 dark:hover:bg-indigo-500/20 text-slate-700 dark:text-slate-300 hover:text-indigo-600 dark:hover:text-indigo-200 border border-slate-200 dark:border-white/10 hover:border-indigo-300 dark:hover:border-indigo-500/30 transition text-left"
             >
               {sample.label}
             </button>

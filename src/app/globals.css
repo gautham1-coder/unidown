@@ -11,12 +11,12 @@
   --accent: #6366f1;
 }
 
-.light {
+html.light {
   --background: #f8fafc;
   --foreground: #0f172a;
   --card: #ffffff;
   --card-border: #e2e8f0;
-  --muted: #64748b;
+  --muted: #475569;
   --accent: #4f46e5;
 }
 
@@ -26,9 +26,10 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   min-height: 100vh;
   overflow-x: hidden;
+  transition: background-color 0.2s ease, color 0.2s ease;
 }
 
-/* Custom background mesh */
+/* Background mesh */
 .bg-mesh {
   background-image: 
     radial-gradient(at 15% 15%, rgba(99, 102, 241, 0.18) 0px, transparent 50%),
@@ -36,14 +37,14 @@ body {
     radial-gradient(at 50% 80%, rgba(59, 130, 246, 0.12) 0px, transparent 50%);
 }
 
-.light .bg-mesh {
+html.light .bg-mesh {
   background-image: 
-    radial-gradient(at 15% 15%, rgba(99, 102, 241, 0.10) 0px, transparent 50%),
-    radial-gradient(at 85% 20%, rgba(168, 85, 247, 0.08) 0px, transparent 50%),
-    radial-gradient(at 50% 80%, rgba(59, 130, 246, 0.06) 0px, transparent 50%);
+    radial-gradient(at 15% 15%, rgba(99, 102, 241, 0.12) 0px, transparent 55%),
+    radial-gradient(at 85% 20%, rgba(168, 85, 247, 0.10) 0px, transparent 55%),
+    radial-gradient(at 50% 80%, rgba(59, 130, 246, 0.08) 0px, transparent 55%);
 }
 
-/* Glassmorphism */
+/* Glassmorphism panels */
 .glass-panel {
   background: rgba(15, 23, 42, 0.75);
   backdrop-filter: blur(16px);
@@ -51,11 +52,100 @@ body {
   border: 1px solid rgba(255, 255, 255, 0.08);
 }
 
-.light .glass-panel {
-  background: rgba(255, 255, 255, 0.85);
+html.light .glass-panel {
+  background: rgba(255, 255, 255, 0.92) !important;
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(203, 213, 225, 0.8) !important;
+  box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.02) !important;
+}
+
+/* Light mode high-contrast typography & surface rules */
+html.light .text-slate-100,
+html.light .text-slate-200 {
+  color: #0f172a !important;
+}
+
+html.light .text-slate-300 {
+  color: #1e293b !important;
+}
+
+html.light .text-slate-400 {
+  color: #475569 !important;
+}
+
+html.light .text-slate-500 {
+  color: #64748b !important;
+}
+
+html.light input[type="url"],
+html.light input[type="text"] {
+  color: #0f172a !important;
+}
+
+html.light input::placeholder {
+  color: #94a3b8 !important;
+}
+
+html.light select {
+  background-color: #ffffff !important;
+  color: #0f172a !important;
+  border-color: #cbd5e1 !important;
+}
+
+html.light option {
+  background-color: #ffffff !important;
+  color: #0f172a !important;
+}
+
+html.light .bg-slate-900,
+html.light .bg-slate-900\/80 {
+  background-color: #f1f5f9 !important;
+  color: #0f172a !important;
+  border-color: #e2e8f0 !important;
+}
+
+html.light .border-white\/5,
+html.light .border-white\/10,
+html.light .border-white\/20 {
+  border-color: rgba(15, 23, 42, 0.12) !important;
+}
+
+html.light .bg-white\/5 {
+  background-color: rgba(15, 23, 42, 0.05) !important;
+}
+
+html.light .bg-white\/10 {
+  background-color: rgba(15, 23, 42, 0.08) !important;
+}
+
+html.light .hover\:bg-white\/10:hover {
+  background-color: rgba(15, 23, 42, 0.1) !important;
+}
+
+html.light .hover\:bg-white\/5:hover {
+  background-color: rgba(15, 23, 42, 0.06) !important;
+}
+
+html.light .hover\:text-white:hover {
+  color: #0f172a !important;
+}
+
+html.light .bg-black\/40,
+html.light .bg-black\/60,
+html.light .bg-black\/70,
+html.light .bg-black\/80 {
+  background-color: rgba(15, 23, 42, 0.75) !important;
+}
+
+/* Modals backdrop */
+html.light .fixed.inset-0.bg-black\/60 {
+  background-color: rgba(15, 23, 42, 0.4) !important;
+}
+
+/* Brand text gradient in light mode */
+html.light .bg-clip-text.text-transparent.bg-gradient-to-r {
+  background-image: linear-gradient(to right, #4338ca, #7c3aed, #db2777) !important;
 }
 
 /* Smooth custom scrollbars */
@@ -72,4 +162,11 @@ body {
 }
 ::-webkit-scrollbar-thumb:hover {
   background: #475569;
+}
+
+html.light ::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+}
+html.light ::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
 }

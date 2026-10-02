@@ -167,14 +167,14 @@ export default function Home() {
             <span>Universal Media & Stream Extractor</span>
           </div>
 
-          <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-slate-100">
+          <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-slate-900 dark:text-slate-100">
             Download from{' '}
-            <span className="bg-clip-text text-transparent bg-gradient-to-r from-indigo-400 via-purple-400 to-pink-400">
+            <span className="bg-clip-text text-transparent bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 dark:from-indigo-400 dark:via-purple-400 dark:to-pink-400">
               Any Website
             </span>
           </h1>
 
-          <p className="text-sm sm:text-base text-slate-400 max-w-2xl mx-auto leading-relaxed">
+          <p className="text-sm sm:text-base text-slate-600 dark:text-slate-400 max-w-2xl mx-auto leading-relaxed">
             Extract videos, music, images, and files from popular social platforms, streaming portals, or inspect any web page.
           </p>
         </div>
@@ -189,12 +189,12 @@ export default function Home() {
 
         {/* Error Alert */}
         {error && (
-          <div className="w-full max-w-3xl mx-auto p-4 rounded-2xl bg-rose-500/10 border border-rose-500/20 text-rose-300 flex items-start gap-3 animate-in fade-in duration-200">
-            <AlertCircle className="w-5 h-5 shrink-0 mt-0.5 text-rose-400" />
+          <div className="w-full max-w-3xl mx-auto p-4 rounded-2xl bg-rose-500/10 border border-rose-500/20 text-rose-700 dark:text-rose-300 flex items-start gap-3 animate-in fade-in duration-200">
+            <AlertCircle className="w-5 h-5 shrink-0 mt-0.5 text-rose-600 dark:text-rose-400" />
             <div className="space-y-1 text-xs sm:text-sm">
-              <p className="font-semibold text-rose-200">Extraction Notice</p>
+              <p className="font-semibold text-rose-800 dark:text-rose-200">Extraction Notice</p>
               <p>{error}</p>
-              <p className="text-[11px] text-rose-300/80 pt-1">
+              <p className="text-[11px] text-rose-600/80 dark:text-rose-300/80 pt-1">
                 Tip: If the platform blocks datacenter IPs, check your backend instance in Settings or verify that the link is publicly accessible.
               </p>
             </div>
@@ -213,32 +213,32 @@ export default function Home() {
 
         {/* Feature Highlights Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-10">
-          <div className="p-5 rounded-2xl glass-panel border border-white/5 space-y-2">
-            <div className="p-2.5 rounded-xl bg-indigo-500/10 border border-indigo-500/20 w-fit text-indigo-400">
+          <div className="p-5 rounded-2xl glass-panel border border-slate-200 dark:border-white/5 space-y-2">
+            <div className="p-2.5 rounded-xl bg-indigo-500/10 border border-indigo-500/20 w-fit text-indigo-500 dark:text-indigo-400">
               <Globe className="w-5 h-5" />
             </div>
-            <h3 className="font-bold text-sm text-slate-200">Universal Scraper</h3>
-            <p className="text-xs text-slate-400 leading-relaxed">
+            <h3 className="font-bold text-sm text-slate-900 dark:text-slate-200">Universal Scraper</h3>
+            <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
               Scrapes any webpage for embedded HTML5 videos, audio tracks, openGraph media, and high-res images automatically.
             </p>
           </div>
 
-          <div className="p-5 rounded-2xl glass-panel border border-white/5 space-y-2">
-            <div className="p-2.5 rounded-xl bg-purple-500/10 border border-purple-500/20 w-fit text-purple-400">
+          <div className="p-5 rounded-2xl glass-panel border border-slate-200 dark:border-white/5 space-y-2">
+            <div className="p-2.5 rounded-xl bg-purple-500/10 border border-purple-500/20 w-fit text-purple-500 dark:text-purple-400">
               <ShieldCheck className="w-5 h-5" />
             </div>
-            <h3 className="font-bold text-sm text-slate-200">CORS-Free Proxy</h3>
-            <p className="text-xs text-slate-400 leading-relaxed">
+            <h3 className="font-bold text-sm text-slate-900 dark:text-slate-200">CORS-Free Proxy</h3>
+            <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
               Built-in streaming proxy ensures direct downloads without cross-origin blocks, with proper filenames and resumable ranges.
             </p>
           </div>
 
-          <div className="p-5 rounded-2xl glass-panel border border-white/5 space-y-2">
-            <div className="p-2.5 rounded-xl bg-pink-500/10 border border-pink-500/20 w-fit text-pink-400">
+          <div className="p-5 rounded-2xl glass-panel border border-slate-200 dark:border-white/5 space-y-2">
+            <div className="p-2.5 rounded-xl bg-pink-500/10 border border-pink-500/20 w-fit text-pink-500 dark:text-pink-400">
               <Layers className="w-5 h-5" />
             </div>
-            <h3 className="font-bold text-sm text-slate-200">Multi-Format & Quality</h3>
-            <p className="text-xs text-slate-400 leading-relaxed">
+            <h3 className="font-bold text-sm text-slate-900 dark:text-slate-200">Multi-Format & Quality</h3>
+            <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
               Extract Full HD 1080p, audio MP3, or high-res original images with instant format selection and multi-item galleries.
             </p>
           </div>
@@ -246,19 +246,19 @@ export default function Home() {
       </main>
 
       {/* Footer */}
-      <footer className="w-full border-t border-white/10 mt-16 py-6 text-center text-xs text-slate-500">
+      <footer className="w-full border-t border-slate-200 dark:border-white/10 mt-16 py-6 text-center text-xs text-slate-500 dark:text-slate-400">
         <div className="max-w-6xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-3">
           <p>UniDown &copy; {new Date().getFullYear()} &bull; Universal Media & File Downloader</p>
           <div className="flex items-center gap-4">
             <button
               onClick={() => setIsSitesOpen(true)}
-              className="hover:text-slate-300 transition"
+              className="hover:text-slate-900 dark:hover:text-slate-200 transition"
             >
               Supported Sites
             </button>
             <button
               onClick={() => setIsSettingsOpen(true)}
-              className="hover:text-slate-300 transition"
+              className="hover:text-slate-900 dark:hover:text-slate-200 transition"
             >
               Configuration
             </button>

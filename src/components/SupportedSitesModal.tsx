@@ -98,14 +98,14 @@ export function SupportedSitesModal({ isOpen, onClose }: SupportedSitesModalProp
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm animate-in fade-in duration-200">
       <div className="w-full max-w-2xl rounded-3xl glass-panel border border-white/10 shadow-2xl overflow-hidden flex flex-col max-h-[85vh]">
         {/* Header */}
-        <div className="p-5 border-b border-white/10 flex items-center justify-between">
+        <div className="p-5 border-b border-slate-200 dark:border-white/10 flex items-center justify-between">
           <div className="flex items-center gap-2">
-            <Sparkles className="w-5 h-5 text-indigo-400" />
-            <h3 className="font-bold text-slate-100">Supported Sources & Formats</h3>
+            <Sparkles className="w-5 h-5 text-indigo-500 dark:text-indigo-400" />
+            <h3 className="font-bold text-slate-900 dark:text-slate-100">Supported Sources & Formats</h3>
           </div>
           <button
             onClick={onClose}
-            className="p-1.5 text-slate-400 hover:text-white hover:bg-white/10 rounded-lg transition"
+            className="p-1.5 text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-white/10 rounded-lg transition"
           >
             <X className="w-4 h-4" />
           </button>
@@ -114,21 +114,21 @@ export function SupportedSitesModal({ isOpen, onClose }: SupportedSitesModalProp
         {/* Content */}
         <div className="p-6 overflow-y-auto space-y-6">
           {/* Universal Any-Site Scraper Highlight */}
-          <div className="p-4 rounded-2xl bg-indigo-500/10 border border-indigo-500/20 space-y-2">
+          <div className="p-4 rounded-2xl bg-indigo-50 dark:bg-indigo-500/10 border border-indigo-200 dark:border-indigo-500/20 space-y-2">
             <div className="flex items-center gap-2">
-              <Globe className="w-5 h-5 text-indigo-400" />
-              <h4 className="font-bold text-sm text-indigo-300">
+              <Globe className="w-5 h-5 text-indigo-600 dark:text-indigo-400" />
+              <h4 className="font-bold text-sm text-indigo-900 dark:text-indigo-300">
                 Universal Any-Site Web Inspector
               </h4>
             </div>
-            <p className="text-xs text-slate-300 leading-relaxed">
+            <p className="text-xs text-slate-700 dark:text-slate-300 leading-relaxed">
               UniDown can inspect <strong>any public website URL</strong> (news websites, blogs, personal portfolios, wikis, media hosting). It automatically discovers embedded HTML5 <code>&lt;video&gt;</code>, <code>&lt;audio&gt;</code>, OpenGraph media, structured JSON-LD schemas, high-res images, and downloadable document links!
             </p>
           </div>
 
           {/* Social & Streaming Platforms */}
           <div>
-            <h4 className="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-3">
+            <h4 className="text-xs font-semibold text-slate-700 dark:text-slate-400 uppercase tracking-wider mb-3">
               Popular Social & Video Platforms
             </h4>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
@@ -137,16 +137,16 @@ export function SupportedSitesModal({ isOpen, onClose }: SupportedSitesModalProp
                 return (
                   <div
                     key={idx}
-                    className="p-3 rounded-xl bg-white/5 border border-white/5 flex items-start gap-3"
+                    className="p-3 rounded-xl bg-slate-50 dark:bg-white/5 border border-slate-200 dark:border-white/5 flex items-start gap-3"
                   >
-                    <div className="p-2 rounded-lg bg-black/40 border border-white/5 shrink-0">
+                    <div className="p-2 rounded-lg bg-white dark:bg-black/40 border border-slate-200 dark:border-white/5 shrink-0 shadow-sm">
                       <Icon className={`w-4 h-4 ${platform.color}`} />
                     </div>
                     <div>
-                      <p className="text-xs font-bold text-slate-200">
+                      <p className="text-xs font-bold text-slate-900 dark:text-slate-200">
                         {platform.name}
                       </p>
-                      <p className="text-[11px] text-slate-400">
+                      <p className="text-[11px] text-slate-600 dark:text-slate-400">
                         {platform.description}
                       </p>
                     </div>
@@ -158,17 +158,17 @@ export function SupportedSitesModal({ isOpen, onClose }: SupportedSitesModalProp
 
           {/* Direct File Links */}
           <div>
-            <h4 className="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-3">
+            <h4 className="text-xs font-semibold text-slate-700 dark:text-slate-400 uppercase tracking-wider mb-3">
               Direct File & Media Streams
             </h4>
-            <div className="p-4 rounded-2xl bg-white/5 border border-white/5 space-y-2">
+            <div className="p-4 rounded-2xl bg-slate-50 dark:bg-white/5 border border-slate-200 dark:border-white/5 space-y-2">
               <div className="flex items-center gap-2">
-                <FileDown className="w-4 h-4 text-emerald-400" />
-                <span className="text-xs font-bold text-slate-200">
+                <FileDown className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
+                <span className="text-xs font-bold text-slate-900 dark:text-slate-200">
                   Direct Media & Archive Links
                 </span>
               </div>
-              <p className="text-xs text-slate-400">
+              <p className="text-xs text-slate-600 dark:text-slate-400">
                 Paste any direct link to download directly or via our built-in CORS streaming proxy:
               </p>
               <div className="flex flex-wrap gap-1.5 pt-1">
@@ -180,7 +180,7 @@ export function SupportedSitesModal({ isOpen, onClose }: SupportedSitesModalProp
                 ].map((ext) => (
                   <span
                     key={ext}
-                    className="px-2 py-0.5 rounded bg-black/40 border border-white/10 text-[10px] font-mono text-slate-300"
+                    className="px-2 py-0.5 rounded bg-white dark:bg-black/40 border border-slate-200 dark:border-white/10 text-[10px] font-mono text-slate-800 dark:text-slate-300 shadow-sm"
                   >
                     {ext}
                   </span>
